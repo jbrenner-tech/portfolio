@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonathan Brenner | Offensive security</title>
+  <meta name="description" content="Jonathan Brenner is a Security+ and Network+ certified cybersecurity student in Evansville, IN looking for a first penetration testing role. Projects, tools and resume.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Jonathan Brenner | Offensive security">
+  <meta property="og:description" content="Cybersecurity student and IT intern looking for a first penetration testing role. Available full-time January 2027.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <div class="wrap masthead-row">
+      <a class="mark" href="#top">Jonathan Brenner</a>
+      <nav aria-label="Sections">
+        <a href="#summary">Summary</a>
+        <a href="#findings">Projects</a>
+        <a href="#tooling">Tools</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <section class="cover" id="top">
+      <p class="doc-title">Candidate assessment</p>
+      <h1>Jonathan Brenner</h1>
+      <p class="lede">Cybersecurity student and IT intern looking for a first penetration testing role.</p>
+
+      <dl class="facts">
+        <div><dt>Role sought</dt><dd>Penetration tester, full time</dd></div>
+        <div><dt>Available</dt><dd>January 2027</dd></div>
+        <div><dt>Location</dt><dd>Evansville, IN, or remote</dd></div>
+        <div><dt>Certifications</dt><dd>CompTIA Security+, CompTIA Network+</dd></div>
+        <div><dt>Education</dt><dd>AAS, Cyber Security / Information Assurance, Ivy Tech (NSA/DHS CAE&#8209;CD), May 2027</dd></div>
+      </dl>
+
+      <p class="actions">
+        <a class="button" href="assets/Jonathan_Brenner_Resume.pdf">Download resume (PDF)</a>
+        <a class="button quiet" href="mailto:hello@jonathan-brenner.com">Email Jonathan</a>
+      </p>
+    </section>
+
+    <section class="section" id="summary" aria-labelledby="summary-h">
+      <h2 id="summary-h">Summary</h2>
+      <div class="body">
+        <p>I'm finishing an associate degree in Cyber Security / Information Assurance at an NSA/DHS Center of Academic Excellence, and I'm looking for my first penetration testing job.</p>
+        <p>At school I've run a full penetration test against an authorized target and written it up. At work I'm an IT intern keeping healthcare endpoints locked down. At home I run a segmented lab that I attack and defend, so I understand what a finding looks like from both sides of the report.</p>
+        <p>I'm open to full-time work in Evansville or remote, from January 2027.</p>
+      </div>
+    </section>
+
+    <section class="section" id="findings" aria-labelledby="findings-h">
+      <h2 id="findings-h">Projects</h2>
+      <div class="body">
+
+        <article class="finding" id="f-01">
+          <h3><span class="fid">F-01</span> Penetration test and report</h3>
+          <p class="context">Ethical Hacking final, Ivy Tech. Authorized lab target.</p>
+          <p>Ran a full engagement from first scan to written report.</p>
+          <ul>
+            <li>Exploited a backdoored ProFTPD service with Metasploit to get onto the target.</li>
+            <li>Extracted the shadow file and cracked the recovered password hashes with John the Ripper.</li>
+            <li>Scanned the web application with WPScan.</li>
+            <li>Documented methodology, findings and remediation in a structured report.</li>
+          </ul>
+        </article>
+
+        <article class="finding" id="f-02">
+          <h3><span class="fid">F-02</span> Home lab: attack surface testing and hardening</h3>
+          <p class="context">Self-directed, June 2022 to present.</p>
+          <p>A segmented lab I scan from the inside and the outside to check that my firewall rules do what I think they do.</p>
+          <ul>
+            <li>Compare internal and external exposure with Nmap NSE scripts and Wireshark captures to find services that shouldn't be reachable. Track CVEs that affect the lab's software to decide what to patch first.</li>
+            <li>Split the network into Trusted, Servers and IoT VLANs on OPNsense with default-deny rules, plus logged tripwire rules on the IoT VLAN that flag a likely compromise.</li>
+            <li>Traced a recurring Proxmox outage to a network driver hang, tuned the driver and added a systemd watchdog that recovers the node automatically.</li>
+          </ul>
+          <p class="redactions">
+            <span>Hostnames <span class="redact" role="img" aria-label="redacted">████████████</span></span>
+            <span>Addresses <span class="redact" role="img" aria-label="redacted">██████████</span></span>
+            <span>External domain <span class="redact" role="img" aria-label="redacted">████████████████</span></span>
+          </p>
+          <p class="note">Withheld on purpose. Keeping a lab's details off the public internet is part of the job.</p>
+        </article>
+
+        <article class="finding" id="f-03">
+          <h3><span class="fid">F-03</span> Detection and single sign-on</h3>
+          <p class="context">Part of the home lab.</p>
+          <ul>
+            <li>Deployed a Wazuh SIEM on Proxmox with agents on Windows, BSD and Linux hosts, NAS syslog forwarding and email alerting.</li>
+            <li>Moved five services (Proxmox, OPNsense, Wazuh, Zabbix, Jellyfin) from LLDAP to Authentik SSO and built a three-tier group model for role-based access.</li>
+          </ul>
+        </article>
+
+        <article class="finding" id="f-04">
+          <h3><span class="fid">F-04</span> Distributed password cracking</h3>
+          <p class="context">Part of the home lab.</p>
+          <p>Runs Hashtopolis with cloud GPU workers to study how password storage choices hold up under attack.</p>
+        </article>
+
+        <article class="finding" id="f-05">
+          <h3><span class="fid">F-05</span> Research paper: virtual machine escapes</h3>
+          <p class="context">Ivy Tech coursework.</p>
+          <p>Wrote up how a guest can break out of a virtual machine, using CVE-2025-22225, CVE-2024-6222 and CVE-2025-40300 as case studies.</p>
+        </article>
+
+        <article class="finding" id="f-06">
+          <h3><span class="fid">F-06</span> Active Directory domain on AWS</h3>
+          <p class="context">Ivy Tech coursework.</p>
+          <p>Built a Windows Server 2022 domain on EC2: the VPC, a domain controller, users, groups and Group Policy.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="tooling" aria-labelledby="tooling-h">
+      <h2 id="tooling-h">Tools</h2>
+      <div class="body">
+        <dl class="tools">
+          <div><dt>Offensive and testing</dt><dd>Metasploit, Nmap (NSE), WPScan, John the Ripper, Hashcat, Hashtopolis, Wireshark, Kali Linux</dd></div>
+          <div><dt>Defense and monitoring</dt><dd>Wazuh SIEM, OPNsense, Zabbix (SNMPv3), firewall policy, VLAN segmentation</dd></div>
+          <div><dt>Identity and access</dt><dd>Active Directory, Microsoft Entra ID, MFA, Group Policy, Authentik SSO (LDAP)</dd></div>
+          <div><dt>Networking</dt><dd>TCP/IP, UDP, DHCP, DNS, SNMP, HAProxy reverse proxy, WireGuard VPN, Cloudflare, SSL/TLS</dd></div>
+          <div><dt>Systems</dt><dd>Windows 10 and 11, Linux (Ubuntu, Debian, Kali, Mint), Proxmox VE, Docker, VirtualBox, AWS EC2</dd></div>
+          <div><dt>Scripting</dt><dd>Python, Bash, HTML/CSS/JavaScript</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="background" aria-labelledby="background-h">
+      <h2 id="background-h">Background</h2>
+      <div class="body">
+
+        <article class="role">
+          <h3>IT Intern, Easterseals Rehabilitation Center</h3>
+          <p class="context">Evansville, IN. August to December 2026.</p>
+          <ul>
+            <li>Maintain HIPAA security controls on endpoints: BitLocker encryption, MFA re-enrollment, screen lockout settings and removal of unauthorized software through ConnectWise.</li>
+            <li>Manage user accounts in Active Directory and Microsoft Entra ID, and resolve Tier 1 tickets in Spiceworks across 11 facilities.</li>
+            <li>Reviewed updated cybersecurity guidelines against Easterseals National standards and helped with immutable backup processes.</li>
+            <li>Found a bug in the ticketing platform, gathered diagnostics and worked with the vendor to fix it. Write knowledge base articles for recurring problems.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <h3>Optical Lab Technician, Armada Optical</h3>
+          <p class="context">Evansville, IN. May 2022 to present.</p>
+          <ul>
+            <li>Diagnose and repair manufacturing equipment more than 30 years old without vendor documentation, using root-cause analysis on mechanical and electrical faults.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <h3>AAS, Cyber Security / Information Assurance, Ivy Tech Community College</h3>
+          <p class="context">Evansville, IN. Expected May 2027. GPA 3.5. Dean's List. NSA/DHS Center of Academic Excellence (CAE-CD).</p>
+          <ul>
+            <li>Completed: Network Protocol Analysis, Linux and Virtualization, Enterprise Computing, Cloud Foundations, Business Continuity, Ethical Hacking, Digital Forensics, IT Project Management.</li>
+            <li>Technical Certificate in Cyber Security / Information Assurance already awarded.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <div class="body">
+        <p>The fastest way to reach me is email.</p>
+        <p class="actions">
+          <a class="button" href="mailto:hello@jonathan-brenner.com">hello@jonathan-brenner.com</a>
+          <a class="button quiet" href="assets/Jonathan_Brenner_Resume.pdf">Download resume (PDF)</a>
+        </p>
+        <p class="elsewhere">
+          <a href="https://github.com/jbrenner-tech">GitHub</a>
+          <a href="https://www.linkedin.com/in/jonathanbrenner/">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap footer">
+    <p>Jonathan Brenner, Evansville, IN. Built by hand as a static page: no trackers, no scripts, no external requests.</p>
+  </footer>
+</body>
+</html>

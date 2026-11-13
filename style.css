@@ -1,0 +1,213 @@
+/* Jonathan Brenner portfolio: a candidate "report" on cool paper and ink.
+   System fonts only, so nothing loads from outside this folder. */
+
+:root {
+  --paper: #f6f7f9;
+  --ink: #151a21;
+  --muted: #4a5463;
+  --rule: #c9cfd8;
+  --accent: #244a78;
+  --accent-ink: #f6f7f9;
+  --bar: #151a21;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Charter, "Bitstream Charter", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --gutter: 9.5rem;
+  --measure: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #10141a;
+    --ink: #e7eaee;
+    --muted: #a3adbb;
+    --rule: #2c3441;
+    --accent: #8fb5e9;
+    --accent-ink: #10141a;
+    --bar: #e7eaee;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { max-width: 64rem; margin-inline: auto; padding-inline: 1.25rem; }
+
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 0.08em; }
+a:hover { text-decoration-thickness: 0.14em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 0.75rem; top: -4rem;
+  background: var(--ink); color: var(--paper);
+  padding: 0.5rem 0.9rem; font-family: var(--sans); font-size: 0.95rem; z-index: 10;
+}
+.skip:focus { top: 0.75rem; }
+
+/* Masthead */
+.masthead {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.masthead-row {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: 0.25rem 1.5rem;
+  padding-block: 0.7rem;
+  font-family: var(--sans); font-size: 0.95rem;
+}
+.mark { color: var(--ink); font-weight: 700; text-decoration: none; letter-spacing: 0.01em; }
+.masthead nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.masthead nav a { color: var(--muted); text-decoration: none; }
+.masthead nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Cover */
+.cover {
+  padding-block: 4.5rem 3.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.doc-title {
+  margin: 0 0 1.25rem;
+  padding-top: 0.9rem;
+  border-top: 6px solid var(--ink);
+  max-width: 14rem;
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--muted);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6.25rem);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.lede {
+  max-width: 34rem;
+  margin: 1.5rem 0 2.5rem;
+  font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+  line-height: 1.35;
+}
+
+.facts { margin: 0 0 2.5rem; max-width: 46rem; border-top: 1px solid var(--rule); }
+.facts > div {
+  display: grid; grid-template-columns: 9.5rem 1fr; gap: 0 1.5rem;
+  padding: 0.65rem 0; border-bottom: 1px solid var(--rule);
+}
+.facts dt, .tools dt {
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--muted);
+}
+.facts dd { margin: 0; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0; }
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.15rem;
+  background: var(--accent); color: var(--accent-ink);
+  border: 2px solid var(--accent);
+  border-radius: 3px;
+  font-family: var(--sans); font-size: 1rem; font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { text-decoration: underline; text-decoration-thickness: 0.1em; }
+.button.quiet { background: transparent; color: var(--accent); }
+
+/* Sections: heading sits in the margin, content in a readable column */
+.section {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, var(--measure));
+  column-gap: 2.5rem;
+  padding-block: 3.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.section > h2 {
+  margin: 0.2rem 0 0;
+  font-family: var(--sans); font-size: 1.05rem; font-weight: 700; line-height: 1.3;
+}
+.body > :first-child { margin-top: 0; }
+.body > :last-child { margin-bottom: 0; }
+.body p { margin: 0 0 1rem; }
+.body ul { margin: 0.75rem 0 0; padding-left: 1.15rem; }
+.body li { margin-bottom: 0.55rem; padding-left: 0.2rem; }
+.body li::marker { color: var(--muted); }
+
+/* Findings and roles */
+.finding, .role { padding-bottom: 2.25rem; margin-bottom: 2.25rem; border-bottom: 1px solid var(--rule); }
+.finding:last-child, .role:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+
+h3 { margin: 0 0 0.2rem; font-size: 1.3rem; line-height: 1.25; font-weight: 700; }
+.fid {
+  display: inline-block; margin-right: 0.45rem;
+  font-family: var(--sans); font-size: 0.9rem; font-weight: 700; color: var(--accent);
+  white-space: nowrap;
+}
+.context { font-family: var(--sans); font-size: 0.95rem; color: var(--muted); margin: 0 0 0.9rem !important; }
+
+/* The one distinctive element: redaction bars */
+.redactions {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem;
+  margin: 1.1rem 0 0.4rem !important;
+  padding: 0.75rem 0;
+  border-block: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 0.95rem;
+}
+.redact {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 0.4rem;
+  padding: 0 0.15rem;
+  background: var(--bar);
+  color: var(--bar);
+  border-radius: 1px;
+  user-select: none;
+  -webkit-user-select: none;
+  line-height: 1.25;
+}
+.note { font-size: 0.95rem; color: var(--muted); font-style: italic; }
+
+/* Tools */
+.tools { margin: 0; }
+.tools > div { padding: 0.85rem 0; border-top: 1px solid var(--rule); }
+.tools > div:last-child { border-bottom: 1px solid var(--rule); }
+.tools dt { margin-bottom: 0.15rem; }
+.tools dd { margin: 0; }
+
+.elsewhere { display: flex; gap: 1.25rem; margin-top: 1.25rem !important; font-family: var(--sans); }
+
+.footer {
+  padding-block: 2rem 3rem;
+  font-family: var(--sans); font-size: 0.9rem; color: var(--muted);
+}
+.footer p { margin: 0; max-width: 40rem; }
+
+/* Narrow screens: heading moves above the content */
+@media (max-width: 52rem) {
+  .section { grid-template-columns: minmax(0, 1fr); row-gap: 1.25rem; padding-block: 2.5rem; }
+  .section > h2 { margin: 0; padding-top: 0.6rem; border-top: 3px solid var(--ink); max-width: 9rem; }
+  .cover { padding-block: 3rem 2.5rem; }
+}
+@media (max-width: 36rem) {
+  body { font-size: 1.06rem; }
+  .facts > div { grid-template-columns: 1fr; gap: 0.05rem; }
+  .actions .button { width: 100%; text-align: center; }
+  .masthead nav { gap: 0.25rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+@media print {
+  .masthead, .skip, .actions { display: none; }
+  body { font-size: 11pt; background: #fff; color: #000; }
+  .section { padding-block: 1.25rem; break-inside: avoid-page; }
+  .finding, .role { break-inside: avoid; }
+}
